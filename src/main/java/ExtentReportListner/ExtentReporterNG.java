@@ -17,7 +17,8 @@ import java.util.List;
 import java.util.Map;
 
 public class ExtentReporterNG implements IReporter {
-	private ExtentReports extent;
+	protected ExtentReports extent;
+	protected ExtentTest test;
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
 			String outputDirectory) {
@@ -46,7 +47,6 @@ public class ExtentReporterNG implements IReporter {
 		if (tests.size() > 0) {
 			for (ITestResult result : tests.getAllResults()) {
 				test = extent.startTest(result.getMethod().getMethodName());
-
 				test.setStartedTime(getTime(result.getStartMillis()));
 				test.setEndedTime(getTime(result.getEndMillis()));
 

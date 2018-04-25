@@ -21,6 +21,8 @@ public class TestBase {
     public static EventFiringWebDriver e_driver;
     public static WebEventListner eventListner;
 
+
+
     public TestBase() {
         try {
             prop = new Properties();
@@ -39,7 +41,6 @@ public class TestBase {
         if (browsername.equals("chrome")) {
             System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\SeleniumJars\\chromedriver.exe");
             driver = new ChromeDriver();
-
         }
         if (browsername.equals("firefox")) {
             System.setProperty("webdriver.gecko.driver", "D:\\Selenium\\SeleniumJars\\Firefox and Gecko\\geckodriver.exe");
@@ -57,5 +58,4 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(IMPLICIT_WAIT, TimeUnit.SECONDS);
         driver.get(prop.getProperty("URL"));
     }
-
 }

@@ -1,5 +1,7 @@
 package Utils;
 
+import ExtentReportListner.ExtentReporterNG;
+import com.relevantcodes.extentreports.LogStatus;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,8 +9,7 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import java.io.IOException;
 
-public class WebEventListner implements WebDriverEventListener {
-
+public class WebEventListner implements WebDriverEventListener  {
 
     public void beforeAlertAccept(WebDriver driver) {
         System.out.println("beforeAlertAccept Not implemented fully.");
@@ -25,7 +26,6 @@ public class WebEventListner implements WebDriverEventListener {
     public void beforeAlertDismiss(WebDriver driver) {
         System.out.println("beforeAlertDismiss Not implemented fully.");
     }
-
 
     public void beforeNavigateRefresh(WebDriver driver) {
         System.out.println("beforeNavigateRefresh Not implemented fully.");
@@ -61,11 +61,12 @@ public class WebEventListner implements WebDriverEventListener {
 
     public void beforeNavigateTo(String url, WebDriver driver) {
         System.out.println("Before navigating to: '" + url + "'");
-
+     //   test.log(LogStatus.INFO,"Before navigating to: '" + url + "'" );
     }
 
     public void afterNavigateTo(String url, WebDriver driver) {
         System.out.println("Navigated to:'" + url + "'");
+      //  test.log(LogStatus.INFO,"Navigated to:'" + url + "'");
     }
 
     public void beforeChangeValueOf(WebElement element, WebDriver driver) {
