@@ -9,7 +9,9 @@ import org.openqa.selenium.support.events.WebDriverEventListener;
 
 import java.io.IOException;
 
-public class WebEventListner implements WebDriverEventListener  {
+import static Utils.ExtentTestThreadLocalContext.getExtentTest;
+
+public class WebEventListner implements WebDriverEventListener {
 
     public void beforeAlertAccept(WebDriver driver) {
         System.out.println("beforeAlertAccept Not implemented fully.");
@@ -61,12 +63,12 @@ public class WebEventListner implements WebDriverEventListener  {
 
     public void beforeNavigateTo(String url, WebDriver driver) {
         System.out.println("Before navigating to: '" + url + "'");
-     //   test.log(LogStatus.INFO,"Before navigating to: '" + url + "'" );
+        getExtentTest().log(LogStatus.INFO, "Before navigating to: '" + url + "'");
     }
 
     public void afterNavigateTo(String url, WebDriver driver) {
         System.out.println("Navigated to:'" + url + "'");
-      //  test.log(LogStatus.INFO,"Navigated to:'" + url + "'");
+        getExtentTest().log(LogStatus.INFO, "Navigated to:'" + url + "'");
     }
 
     public void beforeChangeValueOf(WebElement element, WebDriver driver) {

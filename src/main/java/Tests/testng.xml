@@ -6,7 +6,7 @@
         <listener class-name="ExtentReportListner.ExtentReporterNG"/>
     </listeners>
 
-    <test name = "Free CRM application testcases">
+    <test name="Free CRM application testcases">
         <classes>
             <class name="Tests.GoogleTest">
             </class>

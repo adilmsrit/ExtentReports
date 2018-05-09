@@ -17,13 +17,13 @@ import java.util.List;
 import java.util.Map;
 
 public class ExtentReporterNG implements IReporter {
-	protected ExtentReports extent;
-	protected ExtentTest test;
+	protected ExtentReports extentReports;
+	protected ExtentTest extentTest;
 
 	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
 			String outputDirectory) {
-		extent = new ExtentReports(outputDirectory + File.separator
-				+ "Adil_Extent.html", true);
+//		extentReports = new ExtentReports(outputDirectory + File.separator
+//				+ "Adil_Extent.html", true);
 
 		for (ISuite suite : suites) {
 			Map<String, ISuiteResult> result = suite.getResults();
@@ -36,9 +36,8 @@ public class ExtentReporterNG implements IReporter {
 				buildTestNodes(context.getSkippedTests(), LogStatus.SKIP);
 			}
 		}
-
-		extent.flush();
-		extent.close();
+//		extentReports.flush();
+//		extentReports.close();
 	}
 
 	private void buildTestNodes(IResultMap tests, LogStatus status) {
@@ -46,7 +45,7 @@ public class ExtentReporterNG implements IReporter {
 
 		if (tests.size() > 0) {
 			for (ITestResult result : tests.getAllResults()) {
-				test = extent.startTest(result.getMethod().getMethodName());
+				test = extentReports.startTest(result.getMethod().getMethodName());
 				test.setStartedTime(getTime(result.getStartMillis()));
 				test.setEndedTime(getTime(result.getEndMillis()));
 
@@ -60,7 +59,7 @@ public class ExtentReporterNG implements IReporter {
 							+ "ed");
 				}
 
-				extent.endTest(test);
+				extentReports.endTest(test);
 			}
 		}
 	}
