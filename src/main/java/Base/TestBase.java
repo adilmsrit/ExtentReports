@@ -13,6 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
+
 import static Utils.ExtentTestThreadLocalContext.getExtentTest;
 import static Utils.ExtentTestThreadLocalContext.setExtentText;
 import static Utils.TestUtil.IMPLICIT_WAIT;
@@ -32,10 +33,10 @@ public class TestBase {
     public TestBase() {
         try {
             prop = new Properties();
-            String file = "D:\\Training Videos\\Naveen\\todelete\\src\\main\\java\\Config\\config.properties";
+            String file = "./src/main/java/Config/config.properties";
             FileInputStream ip = new FileInputStream(file);
             prop.load(ip);
-            System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\SeleniumJars\\chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "./src/main/resources/drivers/chromedriver.exe");
             driver = new ChromeDriver();
 
             e_driver = new EventFiringWebDriver(driver);
@@ -64,8 +65,6 @@ public class TestBase {
     public static void initialization() {
         String browsername = prop.getProperty("browser");
         if (browsername.equals("chrome")) {
-           /* System.setProperty("webdriver.chrome.driver", "D:\\Selenium\\SeleniumJars\\chromedriver.exe");
-            driver = new ChromeDriver();*/
         }
         if (browsername.equals("firefox")) {
             System.setProperty("webdriver.gecko.driver", "D:\\Selenium\\SeleniumJars\\Firefox and Gecko\\geckodriver.exe");
